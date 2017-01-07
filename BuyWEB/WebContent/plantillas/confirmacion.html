@@ -1,0 +1,14 @@
+	<h1>Confirmación de compra</h1>
+
+<h2>Productos:
+</h2>
+
+<ul class="list-group">
+    <li class="list-group-item" ng-repeat="producto in productos">
+        {{producto.nombreProducto}}
+        <strong class="pull-right">${{producto.precio}}</strong>
+    </li>
+
+    <h2>Total de Compra: {{total | currency}}</h2>
+    <button class="btn btn-danger" ng-click="pagar()">Pagar</button>
+</ul>

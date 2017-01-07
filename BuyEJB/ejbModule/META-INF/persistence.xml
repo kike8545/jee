@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" 
+			 xmlns="http://java.sun.com/xml/ns/persistence"
+			 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	
+	<persistence-unit name="BuyEJBPU">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+	
+		<jta-data-source>java:/Buy_DS1</jta-data-source>
+		
+		<!-- ***************** START ENTITIES ***************** -->
+		
+		<class>co.com.buy.entities.Categoria</class>
+		<class>co.com.buy.entities.HistorialCompras</class>
+		<class>co.com.buy.entities.Usuario</class>
+		<class>co.com.buy.entities.Producto</class>
+		
+		<!-- ***************** END ENTITIES ***************** -->	
+		
+	    <properties>
+      		  <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+		      <property name="eclipselink.target-server" value="JBoss"/>
+		      <property name="eclipselink.target-database" value="MySQL"/>
+		      <property name="eclipselink.jdbc.batch-writing" value="JDBC" />
+			  <property name="eclipselink.jdbc.batch-writing.size" value="3000" />
+			  <property name="eclipselink.logging.level" value="off" /> 
+			  <property name="eclipselink.persistence-context.close-on-commit" value="true" />
+			  <property name="eclipselink.persistence-context.flush-mode" value="commit" />
+			  <property name="eclipselink.persistence-context.persist-on-commit" value="false" />     
+	    </properties>  
+	</persistence-unit>
+</persistence>
