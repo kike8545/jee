@@ -112,7 +112,7 @@ public class HistorialComprasService implements Serializable {
 			Integer sizeProductosComprados = params.getJSONArray("producto").length();//cantidad de productos comprados para insertar en historialCompras
 			
 			if (sizeProductosComprados != 0 && sizeProductosComprados != null
-					&& idUsuario != 0 && idUsuario != null) {// si hay productos y usuario se insertan
+					&& idUsuario != 0 && idUsuario != null) {// si hay productos y usuario, se insertan
 				idUsuario=params.getJSONObject("user").getInt("idUsuario");
 				String mail = params.getJSONObject("user").getString("mail");
 				String nombre = params.getJSONObject("user").getString("nombre");

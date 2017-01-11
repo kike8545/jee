@@ -2,9 +2,10 @@
 
     <div class="col-sm-9">
 
-        <div class="push-left well col-sm-3 producto" ng-repeat="producto in productos" ng-class="{'ocultar' : producto.ocultar}">
+        <div class="push-left well col-sm-3 producto" ng-repeat="producto in productos">
 
             <h4>{{producto.nombre}}</h4>
+            
 
             <div class="imagen">
                 <img  ng-src="img/{{producto.nombreProducto}}.jpg" height="50" width="50">
@@ -16,8 +17,8 @@
                 {{producto.categoria.nombreCategoria}}
             </p>
 
-            <button class="btn btn-danger" ng-click="comprar(producto)" ng-disabled="producto.ocultar">
-                Comprar</button>
+            <button class="btn btn-danger" ng-click="agregar(producto)" >
+                Agregar</button>
 
         </div>
 
@@ -30,8 +31,8 @@
             Carrito de compras</h4>
 
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="producto in carrito">
-                {{producto.nombreProducto}}
+            <li class="list-group-item" ng-repeat="producto in carrito track by $index">
+                {{producto.nombreProducto}}   <strong>cant.</strong> {{producto.cantidad}}
                 <strong class="pull-right">{{ producto.precio | currency }}</strong>
             </li>
         </ul>
