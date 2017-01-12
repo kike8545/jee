@@ -50,6 +50,7 @@ public class ProductoService implements Serializable {
 				response.put("nombreProducto", producto.getNombreProducto());
 				response.put("categoria", producto.getCategoria());
 				response.put("precio", producto.getPrecio());
+				response.put("cantidad", 1);
 				
 				listToReturn.add(response);
 			}

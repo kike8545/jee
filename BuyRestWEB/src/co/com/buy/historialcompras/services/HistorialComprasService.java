@@ -71,6 +71,7 @@ public class HistorialComprasService implements Serializable {
 				response.put("usuario", historialCompra.getUsuario().getIdUsuario());
 				response.put("producto", historialCompra.getProducto().getIdProducto());
 				response.put("total", historialCompra.getTotal());
+				
 
 				responseToReturn.add(response);
 
