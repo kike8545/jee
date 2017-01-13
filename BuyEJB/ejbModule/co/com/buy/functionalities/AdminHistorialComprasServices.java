@@ -28,4 +28,15 @@ public class AdminHistorialComprasServices implements AdminHistorialComprasServi
 		}
 		return null;
 	}
+
+	@Override
+	public void saveHistorialCompras(HistorialCompras historialCompras) {
+		try {
+			
+			this.historialComprasFacade.save(historialCompras);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

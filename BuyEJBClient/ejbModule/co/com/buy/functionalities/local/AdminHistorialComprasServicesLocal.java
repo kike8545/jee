@@ -23,4 +23,10 @@ public interface AdminHistorialComprasServicesLocal {
 	 * @return --> HistorialUsuario
 	 */
 	List<HistorialCompras> findByHistorialCompras(Integer usuario);
+	/**
+	 * Método usado para guardar el historial de la compra
+	 * 
+	 * @param historialCompras
+	 */
+	void saveHistorialCompras(HistorialCompras historialCompras);
 }

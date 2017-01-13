@@ -8,8 +8,8 @@ miAppAngular.service('userService', function() {
 	 
 	this.userData = {
 		"idUsuario" : 1,
-		"mail" : 31,
-		"name" : "Fulano de tal",
+		"mail" : "prueba@prueba.com",
+		"nombre" : "Fulano de tal",
 		"pass" : "123"
 	};
 });

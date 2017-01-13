@@ -39,7 +39,7 @@ miAppAngular.controller('inicio', function($scope, $location, $http, carritoDeCo
         $location.path("/confirmacion");
     };
 });
-
+ 
 function ObjecttoParams(obj) {
     var p = [];
     for ( var key in obj) {

@@ -17,4 +17,8 @@ public interface HistorialComprasFacadeLocal {
 	 * @return --> Categoria
 	 */
 	List<HistorialCompras> findByUsuario(Integer usuario);
+	/**
+	 * Método usado para guardar el historial de una comrpa
+	 */
+	void save(HistorialCompras historialCompras);
 }

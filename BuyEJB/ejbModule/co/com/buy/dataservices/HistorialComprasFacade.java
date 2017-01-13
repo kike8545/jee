@@ -32,4 +32,17 @@ public class HistorialComprasFacade implements HistorialComprasFacadeLocal{
 		}
 		return null;
 	}
+
+	@Override
+	public void save(HistorialCompras historialCompras) {
+		try {
+
+			this.em.persist(historialCompras);
+			this.em.flush();
+			this.em.refresh(historialCompras);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
