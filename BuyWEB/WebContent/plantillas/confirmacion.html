@@ -4,9 +4,9 @@
 </h2>
 
 <ul class="list-group">
-    <li class="list-group-item" ng-repeat="producto in productos">
-        {{producto.nombreProducto}}
-        <strong class="pull-right">${{producto.precio}}</strong>
+    <li class="list-group-item" ng-repeat="producto in productosCarrito">
+        {{producto.nomProd}} unidad(s): {{producto.cant}}
+        <strong class="pull-right">${{producto.preci}}</strong>
     </li>
 
     <h2>Total de Compra: {{total | currency}}</h2>

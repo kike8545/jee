@@ -20,22 +20,22 @@ miAppAngular.controller('inicio', function($scope, $location, $http, carritoDeCo
 
    
     $scope.carrito = [];
-    $scope.productosCarrito = [];
+    $scope.productosCarrito = [];//se crea este nuevo array para poder modificar los nombres de los campos, los cuales generan conflicto en el momento de modificar sus valores, pues cambian en toda la aplicacion que contenga ese nombre
    
     $scope.agregar = function(_item) {
         
-      if ($scope.carrito.length !== 0) {  //si no hay productos, agrega uno
+      if ($scope.carrito.length !== 0) {  //si hay productos, no agrega uno y valida cual es para modificar su cantidad y precio a pagar
     	 
     	  posProducto = $scope.carrito.indexOf(_item);	//verifica la posicion del nuevo producto para agregar al carrito
-          	if (posProducto !== -1) {	//si es diferente a -1 es porque el producto no habia sido agregado del carrito
+          	if (posProducto !== -1) {	//si es diferente igual a -1 es porque el producto habia sido agregado del carrito
           		carritoDeCompras.cars[posProducto].cant += 1; // agrega en el capo cantidad un producto mas del mismo elegido
-          		carritoDeCompras.cars[posProducto].preci = _item.precio * carritoDeCompras.cars[posProducto].cant;
+          		carritoDeCompras.cars[posProducto].preci = _item.precio * carritoDeCompras.cars[posProducto].cant;//aumenta valor del producto escogido multiplicando el precio por la cantidad
           		
           		
   			}else{
-  				$scope.carrito.push(_item);//si no existe lo agrega al carrito
+  				$scope.carrito.push(_item);//si no está producto lo agrega al carrito
   				
-  				carritoDeCompras.cars.push({"cant" : _item.cantidad,
+  				carritoDeCompras.cars.push({"cant" : _item.cantidad, //si no existe lo agrega al servicio carritoDeCompras
 					"categor": _item.categoria,
 					"idProd": _item.idProducto,
 					"nomProd":_item.nombreProducto,
@@ -45,7 +45,7 @@ miAppAngular.controller('inicio', function($scope, $location, $http, carritoDeCo
   			}
           	
            
-      }else{
+      }else{//si el producto no existe el carrito agrega uno, al igual que en el servicio carritoDeCompras
 		$scope.carrito.push(_item);
 		carritoDeCompras.cars.push({"cant" : _item.cantidad,
 									"categor": _item.categoria,
@@ -56,7 +56,7 @@ miAppAngular.controller('inicio', function($scope, $location, $http, carritoDeCo
 		
 		
 	  }
-      $scope.productosCarrito = carritoDeCompras.cars;
+      $scope.productosCarrito = carritoDeCompras.cars; //envia los datos para ser visualizados en el front 
     };
     
     $scope.total = function (){

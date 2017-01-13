@@ -14,7 +14,7 @@
             <div class="precio">{{producto.precio | currency}}</div>
 
             <p>
-                {{producto.categoria.nombreCategoria}}
+              <b>{{producto.nombreProducto}}</b> es de categoria {{producto.categoria.nombreCategoria}}
             </p>
 
             <button class="btn btn-danger" ng-click="agregar(producto)" >

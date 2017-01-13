@@ -2,7 +2,7 @@ miAppAngular
 			.controller('confirmacion', function($scope, $http,	carritoDeCompras, userService) {
 
 	$scope.total = carritoDeCompras.total;
-	$scope.productos = carritoDeCompras.productos;
+	$scope.productosCarrito = carritoDeCompras.cars;
 
 	
 	$scope.pagar = function() {// Ésta funcion inserta los productos que el usuario "pago" en historial compras
