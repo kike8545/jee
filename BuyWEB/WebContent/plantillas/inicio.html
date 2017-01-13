@@ -31,9 +31,9 @@
             Carrito de compras</h4>
 
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="product in cars">
-                {{product.nomProd}}   <strong>cant.</strong> {{product.cant}}
-                <strong class="pull-right">{{ product.preci | currency }}</strong>
+            <li class="list-group-item" ng-repeat="producto in productosCarrito track by $index">
+                {{producto.nomProd}}   <strong>cant.</strong> {{producto.cant}}
+                <strong class="pull-right">{{ producto.preci | currency }}</strong>
             </li>
         </ul>
 

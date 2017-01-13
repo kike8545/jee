@@ -41,12 +41,7 @@ miAppAngular.controller('inicio', function($scope, $location, $http, carritoDeCo
 					"nomProd":_item.nombreProducto,
 					"preci":_item.precio
 					});
-  				$scope.productosCarrito.push({"cant" : _item.cantidad,
-					"categor": _item.categoria,
-					"idProd": _item.idProducto,
-					"nomProd":_item.nombreProducto,
-					"preci":_item.precio
-					});
+  				
   			}
           	
            
@@ -59,14 +54,9 @@ miAppAngular.controller('inicio', function($scope, $location, $http, carritoDeCo
 									"preci":_item.precio
 									});
 		
-		$scope.productosCarrito.push({"cant" : _item.cantidad,
-			"categor": _item.categoria,
-			"idProd": _item.idProducto,
-			"nomProd":_item.nombreProducto,
-			"preci":_item.precio
-			});
+		
 	  }
-      
+      $scope.productosCarrito = carritoDeCompras.cars;
     };
     
     $scope.total = function (){
