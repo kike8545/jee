@@ -39,6 +39,10 @@ public class ProductoService implements Serializable {
 			this.initContextAdminProductoServices();
 			/**
 			 * Procedemos a buscar todos los productos
+			 * @author Jeremy De Avila
+			 * @since 13/01/2017
+			 * 
+			 * @return Devuelve la lista de todos los productos registrados en la base de datos  
 			 */
 			List<Producto> productos = (List<Producto>) this.adminProductoService.findAll(); 
 			List<Map<String, Object>> listToReturn = new ArrayList<Map<String,Object>>();
@@ -50,6 +54,7 @@ public class ProductoService implements Serializable {
 				response.put("nombreProducto", producto.getNombreProducto());
 				response.put("categoria", producto.getCategoria());
 				response.put("precio", producto.getPrecio());
+				/** este campo no existe en la entidad productos, se agreaga para compensar la logica empleada en el front */
 				response.put("cantidad", 1);
 				
 				listToReturn.add(response);

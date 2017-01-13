@@ -5,17 +5,13 @@ miAppAngular
 	$scope.productosCarrito = carritoDeCompras.cars;
 
 	
-	$scope.pagar = function() {// Ésta funcion inserta los productos que el usuario "pago" en historial compras
+	$scope.pagar = function() {/** Ésta funcion inserta los productos que el usuario "pagó" en historial compras*/
 		
-		//productosPagar = $scope.productos[0];
-		//user = userService.userData; //se accede al objeto userData con los datos del usuario
-		
+	
         var javaObject = new Object();
-    	//javaObject = user; 
-       
         
-        javaObject.producto = $scope.productos;// cargo los datos de los productos a pagar
-        javaObject.user = userService.userData;// cargo los datos del usuario por medio del servicio
+        javaObject.producto = $scope.productosCarrito;/** cargo los datos de los productos a pagar*/
+        javaObject.user = userService.userData;/** cargo los datos del usuario por medio del servicio*/
     	
         javaObject = JSON.stringify(javaObject);
     	$http({                

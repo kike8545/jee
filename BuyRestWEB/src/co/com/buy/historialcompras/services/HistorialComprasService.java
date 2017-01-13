@@ -109,11 +109,13 @@ public class HistorialComprasService implements Serializable {
 			/**
 			 * Procedemos a insertar el historial de compras por id de usuario
 			 */
-			Integer idUsuario = params.getJSONObject("user").getInt("idUsuario");//nombre del campor del objeto JSon que viene de la BD
-			Integer sizeProductosComprados = params.getJSONArray("producto").length();//cantidad de productos comprados para insertar en historialCompras
+			Integer idUsuario = params.getJSONObject("user").getInt("idUsuario");/**nombre del campor del objeto JSon que viene de la BD*/
+			
+			/**cantidad de productos comprados para insertar en historialCompras*/
+			Integer sizeProductosComprados = params.getJSONArray("producto").length();
 			
 			if (sizeProductosComprados != 0 && sizeProductosComprados != null
-					&& idUsuario != 0 && idUsuario != null) {// si hay productos y usuario, se insertan
+					&& idUsuario != 0 && idUsuario != null) {/** si hay productos y usuario, se insertan*/
 				idUsuario=params.getJSONObject("user").getInt("idUsuario");
 				String mail = params.getJSONObject("user").getString("mail");
 				String nombre = params.getJSONObject("user").getString("nombre");
@@ -128,27 +130,29 @@ public class HistorialComprasService implements Serializable {
 				user.setMail(mail);
 				user.setPass(pass);
 	            
-				JSONArray arrayProductos = params.getJSONArray("producto");// Se le asignan los productos a un array
+				JSONArray arrayProductos = params.getJSONArray("producto");/** Se le asignan los productos a un array*/
 				
 				for (int i = 0; i < sizeProductosComprados; i++) {
 					
-					/*
+					/**
+					 * Todos lo valores se toman del aray de objetos contruido en inicio.js con sus campos cambiados de nombre
+					 * 
 					 * se contruye el objeto de tipo categoria
 					 * */
 					Categoria categoria = new Categoria();
-					categoria.setId(arrayProductos.getJSONObject(i).getJSONObject("categoria").getInt("id"));   
-     				categoria.setNombreCategoria(arrayProductos.getJSONObject(i).getJSONObject("categoria").getString("nombreCategoria"));
+					categoria.setId(arrayProductos.getJSONObject(i).getJSONObject("categor").getInt("id"));   
+     				categoria.setNombreCategoria(arrayProductos.getJSONObject(i).getJSONObject("categor").getString("nombreCategoria"));
 					
-     				/*
+     				/**
 					 * se contruye el objeto de tipo producto
 					 * */
 					Producto producto = new Producto();
-					producto.setIdProducto(arrayProductos.getJSONObject(i).getInt("idProducto"));
-					producto.setNombreProducto(arrayProductos.getJSONObject(i).getString("nombreProducto"));
+					producto.setIdProducto(arrayProductos.getJSONObject(i).getInt("idProd"));
+					producto.setNombreProducto(arrayProductos.getJSONObject(i).getString("nomProd"));
 					producto.setCategoria(categoria);
-					producto.setPrecio(arrayProductos.getJSONObject(i).getInt("precio"));
+					producto.setPrecio(arrayProductos.getJSONObject(i).getInt("preci"));
 					
-					/*
+					/**
 					 * se contruye el objeto de tipo HistorialCompras a insertar
 					 * */
 					
