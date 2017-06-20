@@ -159,7 +159,7 @@ public class HistorialComprasService implements Serializable {
 					HistorialCompras historialCompras = new HistorialCompras();
 					historialCompras.setUsuario(user);
 					historialCompras.setProducto(producto);
-					historialCompras.setCantidad("1");
+					historialCompras.setCantidad(arrayProductos.getJSONObject(i).getString("cant"));
 					historialCompras.setTotal(producto.getPrecio().toString());
 					
 		            adminHistorialComprasService.saveHistorialCompras(historialCompras);
